@@ -24,11 +24,13 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Run Protoc Setup
-        uses: intazarsmartworking/sample-github-action-project/.github/workflows/protoc-msg.yml@main
-        with:
-          runner: ubuntu-latest
 
       # Step 5: Echo a message (optional)
       - name: Display success message
         run: echo "CI Pipeline executed successfully!"
+
+  protoc-setup:
+    uses: intazarsmartworking/sample-github-action-project/.github/workflows/protoc-msg.yml@main  # Sahi jagah par call karna hai
+    with:
+      runner: ubuntu-latest  # Input jo aapka reusable workflow maang raha hai
+    needs: build      
