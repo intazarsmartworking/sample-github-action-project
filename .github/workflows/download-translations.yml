@@ -24,7 +24,10 @@ jobs:
         with:
           node-version: '16'
 
-      
+      - name: Run Protoc Setup
+        uses: ./.github/workflows/protoc-msg.yml
+        with:
+          runner: ubuntu-latest
 
       # Step 5: Echo a message (optional)
       - name: Display success message
