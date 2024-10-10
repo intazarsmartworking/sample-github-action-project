@@ -34,4 +34,6 @@ jobs:
     uses: ./.github/workflows/protoc-msg.yml  # Reusable workflow ko yahan use karenge
     with:
       runner: ubuntu-latest  # Input denge jo protoc-msg.yml maangega
-    needs: build  # Yeh ensure karega ki yeh job 'build' ke baad chale      
+    permissions:   # Reusable workflow ke liye yeh line add karna zaroori hai
+      id-token: write
+      contents: read     
