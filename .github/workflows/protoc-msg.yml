@@ -1,1 +1,23 @@
+name: Protoc Resuable Workflow
 
+on:
+  workflow_call:
+    inputs:
+      runner:
+        description: 'Runner Label'
+        required: true
+        default: ubuntu-latest
+
+
+jobs:
+  install-protoc:
+    runs-on: ${{ input.runner }}
+    steps:
+      - name: Install Here
+        run: echo "Installation Done"
+
+      - name: Message Here
+        run: echo "Message Done"
+
+      - name: Leave Here
+        run: echo "Leave Done"
