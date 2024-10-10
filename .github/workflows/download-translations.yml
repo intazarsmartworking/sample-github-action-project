@@ -24,16 +24,11 @@ jobs:
         with:
           node-version: '16'
 
-      
+      - name: Run Protoc Setup
+        uses: ./.github/workflows/protoc-msg.yml
+        with:
+          runner: ubuntu-latest
 
       # Step 5: Echo a message (optional)
       - name: Display success message
         run: echo "CI Pipeline executed successfully!"
-
-  protoc-setup:
-    uses: ./.github/workflows/protoc-msg.yml  # Reusable workflow ko yahan use karenge
-    with:
-      runner: ubuntu-latest  # Input denge jo protoc-msg.yml maangega
-    permissions:   # Reusable workflow ke liye yeh line add karna zaroori hai
-      id-token: write
-      contents: read     
