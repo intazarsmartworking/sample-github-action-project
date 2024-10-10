@@ -6,12 +6,13 @@ on:
       runner:
         description: 'Runner Label'
         required: true
+        type: string
         default: ubuntu-latest
 
 
 jobs:
   install-protoc:
-    runs-on: ${{ input.runner }}
+    runs-on: ${{ inputs.runner }}
     steps:
       - name: Install Here
         run: echo "Installation Done"
