@@ -25,7 +25,7 @@ jobs:
           node-version: '16'
 
       - name: Run Protoc Setup
-        uses: ./.github/workflows/protoc-msg.yml
+        uses: intazarsmartworking/sample-github-action-project/.github/workflows/protoc-msg.yml@main
         with:
           runner: ubuntu-latest
 
