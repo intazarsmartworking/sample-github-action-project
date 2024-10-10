@@ -1,16 +1,37 @@
-name: 'Download translations'
+name: Simple CI Pipeline
+
+# Triggers the workflow on push events to the 'main' branch
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
+# Define jobs to run
 jobs:
   build:
+    # Choose the runner environment
     runs-on: ubuntu-latest
+
+    # Steps define the sequence of commands
     steps:
-      - uses: actions/checkout@v2
-      - name: SimpleLocalize Download
-        uses: simplelocalize/download@2.0
+      # Step 1: Check out the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          apiKey: MY_API_KEY
-          downloadPath: ./locales/{ns}/messages-{lang}.json
-          downloadFormat: single-language-json
+          node-version: '16'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run tests
+      - name: Run tests
+        run: npm test
+
+      # Step 5: Echo a message (optional)
+      - name: Display success message
+        run: echo "CI Pipeline executed successfully!"
